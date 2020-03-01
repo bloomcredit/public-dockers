@@ -22,7 +22,7 @@ RUN chmod +x /usr/local/bin/kubectl
 ADD https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator /usr/local/bin/aws-iam-authenticator
 RUN chmod +x /usr/local/bin/aws-iam-authenticator
 
-ADD http://storage.googleapis.com/kubernetes-helm/${HELM_FILE_NAME} /tmp
+ADD https://get.helm.sh/${HELM_FILE_NAME} /tmp
 RUN tar -zxvf /tmp/${HELM_FILE_NAME} -C /tmp \
   && mv /tmp/linux-amd64/helm /bin/helm \
   && rm -rf /tmp/* \
