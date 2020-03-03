@@ -40,3 +40,6 @@ RUN chmod 0755 /bin/helmfile
 
 RUN wget https://github.com//segmentio/chamber/releases/download/v${CHAMBER_VERSION}/chamber-v${CHAMBER_VERSION}-linux-amd64 -O /bin/chamber && \
   chmod +x /bin/chamber
+
+RUN apk -Uuv add groff less python py-pip
+RUN pip install awscli
