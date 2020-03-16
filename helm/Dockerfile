@@ -35,6 +35,7 @@ RUN tar -zxvf /tmp/${HELM_FILE_NAME} -C /tmp \
 
 RUN helm plugin install https://github.com/databus23/helm-diff --version master
 RUN helm plugin install https://github.com/aslafy-z/helm-git.git
+RUN helm plugin install https://github.com/futuresimple/helm-secrets
 
 ADD https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 /bin/helmfile
 RUN chmod 0755 /bin/helmfile
