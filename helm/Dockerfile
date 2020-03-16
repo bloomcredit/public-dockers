@@ -34,6 +34,7 @@ RUN tar -zxvf /tmp/${HELM_FILE_NAME} -C /tmp \
 #    helm plugin install https://github.com/hypnoglow/helm-s3.git --version ${HELM_S3_VERSION}
 
 RUN helm plugin install https://github.com/databus23/helm-diff --version master
+RUN helm plugin install https://github.com/aslafy-z/helm-git.git
 
 ADD https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 /bin/helmfile
 RUN chmod 0755 /bin/helmfile
