@@ -11,7 +11,7 @@ RUN apk add --update --no-cache python3 bash curl \
 
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
-    && mv ./kubectl /usr/local/bin/kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
 
 RUN curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 \
     && chmod +x ./terragrunt_linux_amd64 \
