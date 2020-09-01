@@ -18,3 +18,4 @@ RUN curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/v${TER
     && mv ./terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
 RUN chmod +x /usr/local/bin/terragrunt
+
