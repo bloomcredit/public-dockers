@@ -1,8 +1,8 @@
 # The runatlantis/atlantis-base is created by docker-base/Dockerfile.
-ARG ATLANTIS_DOCKER_IMAGE_VERSION=latest
-ARG TERRAGRUNT_VERSION=0.23.38
+FROM runatlantis/atlantis:v0.15.0
 
-FROM runatlantis/atlantis:${ATLANTIS_DOCKER_IMAGE_VERSION}
+ENV ATLANTIS_VERSION=0.15.0
+ENV TERRAGRUNT_VERSION=0.23.40
 
 RUN apk add --update --no-cache python3 bash curl \
     && curl -O https://bootstrap.pypa.io/get-pip.py \
@@ -13,7 +13,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s 
     && chmod +x ./kubectl \
     && mv ./kubectl /usr/local/bin/kubectl
 
-RUN curl -LO https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 \
+RUN curl -LO "https://github.com/gruntwork-io/terragrunt/releases/download/v$TERRAGRUNT_VERSION/terragrunt_linux_amd64" \
     && chmod +x ./terragrunt_linux_amd64 \
     && mv ./terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
