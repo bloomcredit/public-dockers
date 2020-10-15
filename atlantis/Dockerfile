@@ -2,7 +2,7 @@
 FROM runatlantis/atlantis:v0.15.0
 
 ENV ATLANTIS_VERSION=0.15.0
-ENV TERRAGRUNT_VERSION=0.23.40
+ENV TERRAGRUNT_VERSION=0.25.4
 
 RUN apk add --update --no-cache python3 bash curl \
     && curl -O https://bootstrap.pypa.io/get-pip.py \
