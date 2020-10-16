@@ -6,6 +6,7 @@ ARG HELM_VERSION=3.2.4
 ARG HELM_DIFF_VERSION=3.1.1
 ARG HELM_SECRETS_VERSION=2.0.2
 ARG HELMFILE_VERSION=0.114.0
+ARG ISTIO_VERSION=1.7.3
 
 ENV HELM_FILE_NAME helm-v${HELM_VERSION}-linux-amd64.tar.gz
 
@@ -14,6 +15,9 @@ LABEL version="${HELMFILE_VERSION}-${HELM_VERSION}-${KUBECTL_VERSION}"
 WORKDIR /
 
 RUN apk --update --no-cache add bash ca-certificates git gnupg curl gettext python3 jq && pip3 install gitpython~=2.1.11 requests~=2.22.0 PyYAML~=5.1.1 awscli
+
+RUN curl -L https://istio.io/downloadIstio | ISTIO_VERSION=$ISTIO_VERSION TARGET_ARCH=x86_64 sh - \
+   && mv istio-$ISTIO_VERSION/bin/istioctl /bin/istioctl 
 
 ADD https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
 RUN chmod +x /usr/local/bin/kubectl
