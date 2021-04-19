@@ -1,15 +1,11 @@
 # The runatlantis/atlantis-base is created by docker-base/Dockerfile.
-FROM runatlantis/atlantis:v0.15.0
+FROM runatlantis/atlantis:v0.16.1
 
-ENV ATLANTIS_VERSION=0.15.0
-ENV TERRAGRUNT_VERSION=0.25.4
+ENV ATLANTIS_VERSION=0.15.1
+ENV TERRAGRUNT_VERSION=0.26.7
+ENV KUBECTL_VERSION=v1.21.0
 
-RUN apk add --update --no-cache python3 bash curl \
-    && curl -O https://bootstrap.pypa.io/get-pip.py \
-    && python3 get-pip.py \
-    && pip install --upgrade awscli
-
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
     && mv ./kubectl /usr/local/bin/kubectl
 
