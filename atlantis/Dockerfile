@@ -1,7 +1,7 @@
 # The runatlantis/atlantis-base is created by docker-base/Dockerfile.
-FROM runatlantis/atlantis:v0.16.1
+FROM runatlantis/atlantis:v0.17.3
 
-ENV ATLANTIS_VERSION=0.15.1
+ENV ATLANTIS_VERSION=0.17.3
 ENV TERRAGRUNT_VERSION=0.26.7
 ENV KUBECTL_VERSION=v1.21.0
 
