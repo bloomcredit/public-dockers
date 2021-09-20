@@ -13,4 +13,12 @@ RUN curl -LO "https://github.com/gruntwork-io/terragrunt/releases/download/v$TER
     && chmod +x ./terragrunt_linux_amd64 \
     && mv ./terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    && pip3 install --upgrade pip \
+    && pip3 install \
+    awscli \
+    && rm -rf /var/cache/apk/*
+
 RUN chmod +x /usr/local/bin/terragrunt
