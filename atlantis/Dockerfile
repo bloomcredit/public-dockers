@@ -13,4 +13,6 @@ RUN curl -LO "https://github.com/gruntwork-io/terragrunt/releases/download/v$TER
     && chmod +x ./terragrunt_linux_amd64 \
     && mv ./terragrunt_linux_amd64 /usr/local/bin/terragrunt
 
+RUN apk --no-cache add aws-cli
+
 RUN chmod +x /usr/local/bin/terragrunt
