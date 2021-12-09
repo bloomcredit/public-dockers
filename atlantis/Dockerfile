@@ -1,8 +1,10 @@
 # The runatlantis/atlantis-base is created by docker-base/Dockerfile.
-FROM runatlantis/atlantis:v0.16.1
+FROM runatlantis/atlantis:v0.17.3
 
-ENV ATLANTIS_VERSION=0.15.1
-ENV TERRAGRUNT_VERSION=0.26.7
+
+ENV ATLANTIS_VERSION=0.17.3
+ENV TERRAGRUNT_VERSION=0.34.1
+
 ENV KUBECTL_VERSION=v1.21.0
 
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl \
